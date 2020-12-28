@@ -47,9 +47,10 @@ document.getElementById('background').addEventListener('change', e => {
     }
 });
 // Download
-document.getElementById('download').addEventListener('click', e => {
+document.getElementById('download').addEventListener('click', _ => {
+    let title = (document.getElementById('title') as HTMLInputElement).value ?? 'file';
     let link = document.createElement('a');
-    link.download = `file-${text}.jpg`;
+    link.download = `${title}-${text}.jpg`;
     link.href = canvas.toDataURL('image/jpeg')
     link.click();
 });
